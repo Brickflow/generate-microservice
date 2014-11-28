@@ -21,6 +21,15 @@
         "<%= keywords[i] %>" <%
     } %>
   ],
+  "dependencies": {
+    "lodash": "^2.4.1"<%
+    if (props.common) { %>,
+    "brickflow-common": "git+ssh://git@github.com/Brickflow/brickflow-common.git" <%
+    } %><% 
+    if (props.logger) { %>,
+    "brickflow-logger": "^0.1.6" <%
+    } %>
+  },
   "devDependencies": {
     "grunt-contrib-jshint": "^0.10.0"
   }

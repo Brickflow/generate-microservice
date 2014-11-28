@@ -59,26 +59,35 @@ module.exports = generators.Base.extend({
     }, {
       name: 'license',
       message: 'License',
-      default: 'MIT'
+      default: 'ISC'
     }, {
       name: 'githubUsername',
       message: 'GitHub username'
     }, {
-      name: 'authorName',
-      message: 'Author\'s Name'
-    }, {
-      name: 'authorEmail',
-      message: 'Author\'s Email'
+      name: 'author',
+      message: 'Author',
+      default: 'Brickflow'
     }, {
       name: 'keywords',
       message: 'Key your keywords (comma to split)'
+    }, {
+      type: 'confirm',
+      name: 'common',
+      message: 'Do you need Brickflow-common?',
+      default: false
+    }, {
+      type: 'confirm',
+      name: 'logger',
+      message: 'Do you need Brickflow-logger?',
+      default: true
     }];
 
     this.currentYear = (new Date()).getFullYear();
 
     this.prompt(prompts, function (props) {
       if(props.githubUsername){
-        this.repoUrl = 'https://github.com/' + props.githubUsername + '/' + this.slugname;
+        this.repoUrl = 'https://github.com/' + props.githubUsername + 
+          '/' + this.slugname;
       } else {
         this.repoUrl = 'user/repo';
       }
@@ -103,4 +112,11 @@ module.exports = generators.Base.extend({
       this.template('_README.md', 'README.md');
       this.template('_package.json', 'package.json');
   },
+
+  install: function () {
+      this.installDependencies({
+          bower: false,
+          skipInstall: this.options['skip-install']
+      });
+  }
 });
