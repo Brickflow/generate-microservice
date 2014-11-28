@@ -1,0 +1,39 @@
+# General
+.DS_Store
+brickflow_key.pem
+
+# Config
+config/local.json
+
+# Log
+log
+
+# Build
+.grunt/
+config/local.json
+static/client
+static/old_client
+static/js/*.js
+static/js/*.map
+static/app.min.js.map
+static/css/*
+client/src/lib/jstk
+client/.build
+old_client/.build
+
+# Packages
+.bower-cache/
+.bower-registry/
+*bower_components
+*node_modules/
+
+# Android
+android/Brickflow/gen
+android/Brickflow/bin
+
+# IntelliJ WebStorm
+.idea
+
+# brickflow private key
+brickflow_key.pem
+atlassian-ide-plugin.xml

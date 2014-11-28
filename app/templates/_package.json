@@ -1,0 +1,27 @@
+{
+  "name": "<%= slugname %>",
+  "version": "0.0.0",
+  "main": "lib/<%= slugname %>.js",
+  "description": "<%= props.description %>",
+  "author": {
+    "name": "<%= props.authorName %>",
+    "email": "<%= props.authorEmail %>" <%
+    if (props.authorUrl) { %> ,
+        "url": "<%= props.authorUrl %>" <%
+    } %>
+  },
+  "repository": {
+    "type": "git",
+    "url": "<%= repoUrl %>"
+  },
+  "license": "<%= props.license %>",
+  "keywords": [
+    "<%= slugname %>" <%
+    for (var i = 0; i < keywords.length; i++) { %> ,
+        "<%= keywords[i] %>" <%
+    } %>
+  ],
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.10.0"
+  }
+}
